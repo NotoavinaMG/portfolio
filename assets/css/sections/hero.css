@@ -1,0 +1,292 @@
+/* ==========================================================================
+   Accueil — titre serif, illustration en arche, chiffres clés
+   ========================================================================== */
+
+@layer sections {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100svh - var(--nav-h));
+    padding-bottom: clamp(24px, 4vh, 40px);
+  }
+
+  .hero__inner {
+    flex: 1;
+    display: grid;
+    align-items: center;
+    gap: 56px;
+    padding-block: clamp(32px, 6vh, 80px) clamp(40px, 6vh, 72px);
+  }
+
+  @media (min-width: 1000px) {
+    .hero__inner {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: clamp(48px, 7vw, 112px);
+    }
+  }
+
+  .hero__title {
+    font-size: var(--t-h1);
+    font-weight: 350;
+    line-height: 1.02;
+    letter-spacing: -0.032em;
+  }
+
+  .hero__lede {
+    max-width: 44ch;
+    margin-top: 28px;
+    font-size: var(--t-lede);
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .hero__lede strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  /* Lien discret « Télécharger mon CV », à côté des deux boutons. */
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 4px;
+    font-size: var(--t-sm);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    text-decoration-color: var(--line-strong);
+    transition: text-decoration-color var(--d-ui) ease;
+  }
+
+  .text-link svg {
+    width: 16px;
+    height: 16px;
+    color: var(--laterite);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .text-link:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+
+  /* Bandeau « Ils m'ont fait confiance » --------------------------------- */
+  .trust__inner {
+    display: grid;
+    gap: 16px 48px;
+    padding-block: 32px;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (min-width: 1000px) {
+    .trust__inner {
+      grid-template-columns: auto 1fr;
+      align-items: baseline;
+    }
+  }
+
+  .trust__label {
+    font-family: var(--f-sans);
+    font-size: var(--t-xs);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .trust__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px 28px;
+  }
+
+  .trust__list li {
+    font-family: var(--f-serif);
+    font-size: clamp(1.125rem, 0.4vw + 1rem, 1.375rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--muted);
+  }
+
+  /* Illustration ------------------------------------------------------- */
+  .hero__art {
+    justify-self: center;
+    width: min(100%, 400px);
+  }
+
+  .hero__art svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero__caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-size: var(--t-xs);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 999px) {
+    .hero__art {
+      width: min(100%, 360px);
+    }
+  }
+
+  /* Chiffres clés ------------------------------------------------------- */
+  .hero__facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--line);
+  }
+
+  .hero__facts > div {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 6px;
+    padding: 22px 0 6px;
+  }
+
+  .hero__facts dd {
+    font-family: var(--f-serif);
+    font-size: clamp(2rem, 2.6vw + 0.8rem, 3rem);
+    font-weight: 350;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .hero__facts dt {
+    font-size: var(--t-sm);
+    color: var(--muted);
+  }
+
+  @media (min-width: 760px) {
+    .hero__facts {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .hero__facts > div + div {
+      padding-left: clamp(16px, 2.4vw, 32px);
+      border-left: 1px solid var(--line);
+    }
+  }
+
+  /* ====================================================================
+     Intro — lancée une fois les polices prêtes (JS)
+     ==================================================================== */
+  .js .hero:not(.is-ready) .hero__title .mask > span {
+    transform: translateY(105%);
+  }
+
+  .js .hero:not(.is-ready) [data-intro] {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .js .hero:not(.is-ready) .art__sun {
+    transform: translateY(70px);
+  }
+
+  .js .hero:not(.is-ready) .art__far,
+  .js .hero:not(.is-ready) .art__mid,
+  .js .hero:not(.is-ready) .art__front {
+    transform: translateY(60px);
+  }
+
+  .hero.is-ready .hero__title .mask > span {
+    transition: transform 1100ms var(--ease-expo) var(--delay, 0ms);
+  }
+
+  .hero.is-ready [data-intro] {
+    transition:
+      opacity 800ms var(--ease-out) var(--delay, 0ms),
+      transform 1000ms var(--ease-expo) var(--delay, 0ms);
+  }
+
+  .hero.is-ready .art__sun {
+    transition: transform 1600ms var(--ease-expo) 420ms;
+  }
+
+  .hero.is-ready .art__far {
+    transition: transform 1400ms var(--ease-expo) 300ms;
+  }
+
+  .hero.is-ready .art__mid {
+    transition: transform 1400ms var(--ease-expo) 360ms;
+  }
+
+  .hero.is-ready .art__front {
+    transition: transform 1400ms var(--ease-expo) 420ms;
+  }
+
+  /* Vie de l'illustration : halo qui respire, parallaxe au défilement. */
+  @media (prefers-reduced-motion: no-preference) {
+    .art__rings {
+      transform-origin: 250px 226px;
+      animation: art-breathe 7s ease-in-out infinite alternate;
+    }
+
+    @supports (animation-timeline: scroll()) {
+      .art__px-sun,
+      .art__px-far,
+      .art__px-mid,
+      .art__px-front {
+        animation: linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 100vh;
+      }
+
+      .art__px-sun { animation-name: px-sun; }
+      .art__px-far { animation-name: px-far; }
+      .art__px-mid { animation-name: px-mid; }
+      .art__px-front { animation-name: px-front; }
+    }
+  }
+
+  @keyframes art-breathe {
+    to {
+      transform: scale(1.05);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes px-sun { to { transform: translateY(46px); } }
+  @keyframes px-far { to { transform: translateY(18px); } }
+  @keyframes px-mid { to { transform: translateY(6px); } }
+  @keyframes px-front { to { transform: translateY(-14px); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .hero:not(.is-ready) .hero__title .mask > span,
+    .js .hero:not(.is-ready) [data-intro],
+    .js .hero:not(.is-ready) .art__sun,
+    .js .hero:not(.is-ready) .art__far,
+    .js .hero:not(.is-ready) .art__mid,
+    .js .hero:not(.is-ready) .art__front {
+      transform: none;
+    }
+
+    .js .hero:not(.is-ready) .hero__title {
+      opacity: 0;
+    }
+
+    .hero.is-ready .hero__title {
+      transition: opacity 500ms ease;
+    }
+  }
+}

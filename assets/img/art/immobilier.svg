@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360">
+  <defs>
+    <pattern id="blocks" width="104" height="92" patternUnits="userSpaceOnUse">
+      <rect x="9" y="9" width="86" height="74" rx="9" fill="#ddd4c6"/>
+    </pattern>
+  </defs>
+  <rect width="480" height="360" fill="#eae5dc"/>
+  <!-- Plan de quartier -->
+  <g transform="rotate(-14 240 180)">
+    <rect x="-160" y="-160" width="800" height="680" fill="url(#blocks)"/>
+    <circle cx="118" cy="104" r="46" fill="#d3a588"/>
+    <path d="M-120 330C60 280 250 300 600 150" fill="none" stroke="#f3f0ea" stroke-width="18" stroke-linecap="round"/>
+    <path d="M-120 330C60 280 250 300 600 150" fill="none" stroke="#1b1815" stroke-opacity=".18" stroke-width="1.5" stroke-dasharray="6 8"/>
+  </g>
+  <!-- Repère -->
+  <circle cx="276" cy="176" r="74" fill="none" stroke="#b4441f" stroke-opacity=".16" stroke-width="1.5"/>
+  <circle cx="276" cy="176" r="48" fill="none" stroke="#b4441f" stroke-opacity=".3" stroke-width="1.5"/>
+  <ellipse cx="276" cy="203" rx="15" ry="4.5" fill="#1b1815" fill-opacity=".2"/>
+  <path d="M276 202c-19-23-30-38-30-52a30 30 0 1 1 60 0c0 14-11 29-30 52z" fill="#b4441f"/>
+  <circle cx="276" cy="149" r="11" fill="#f3f0ea"/>
+</svg>

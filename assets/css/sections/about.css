@@ -1,0 +1,49 @@
+/* ==========================================================================
+   03 — À propos : une phrase, quelques repères
+   ========================================================================== */
+
+@layer sections {
+  .about {
+    border-top: 1px solid var(--line);
+  }
+
+  .about__grid {
+    display: grid;
+    gap: 40px;
+  }
+
+  @media (min-width: 1000px) {
+    .about__grid {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      align-items: start;
+      gap: clamp(56px, 8vw, 128px);
+    }
+  }
+
+  .about__lede {
+    max-width: 24ch;
+    font-family: var(--f-serif);
+    font-size: clamp(1.625rem, 1.6vw + 1rem, 2.375rem);
+    font-weight: 350;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+
+  .about__facts {
+    border-top: 1px solid var(--ink);
+  }
+
+  .about__facts > div {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 16px;
+    padding-block: 16px;
+    border-bottom: 1px solid var(--line);
+    font-size: var(--t-sm);
+  }
+
+  .about__facts dt,
+  .about__facts .muted {
+    color: var(--muted);
+  }
+}

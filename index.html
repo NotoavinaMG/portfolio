@@ -1,291 +1,596 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Notoavina Tsiresiharidera — Développeur Frontend</title>
-<meta name="description" content="Notoavina Misaharison Tsiresiharidera, développeur frontend basé à Antananarivo. 7 ans à concevoir des interfaces rapides avec Vue, React et Next.">
-<meta name="theme-color" content="#0b0a12">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0b0a12; --panel:#14121f; --panel-2:#1a1730; --ink:#f1ecff; --dim:#9a93b8; --dim-2:#5f5882;
-  --accent:#8b6bff; --accent-2:#ffd3aa; --warm:#ff7a59;
-  --line:rgba(241,236,255,.10);
-  --grad:linear-gradient(115deg,#8b6bff,#b15cff 45%,#ff7a59);
-  --disp:'Sora',system-ui,sans-serif;
-  --body:'Inter',system-ui,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,monospace;
-  --ease:cubic-bezier(.2,.7,.2,1);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;background:var(--bg);scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:clamp(15px,.4vw + 14px,16px);
-  line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-::selection{background:var(--accent);color:#0b0a12}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-h1,h2,h3,h4{font-family:var(--disp);font-weight:700;line-height:1.05;letter-spacing:-.02em}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-i18n="meta.title">Développeur frontend freelance Vue.js &amp; React — Notoavina Tsiresiharidera</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="Notoavina Tsiresiharidera, développeur frontend freelance spécialiste Vue.js et React : renfort pour agences, migration Vue 2 vers Vue 3, intégration de maquettes et maintenance. En remote depuis Antananarivo (UTC+3).">
+  <meta name="author" content="Notoavina Misaharison Tsiresiharidera">
+  <link rel="canonical" href="https://portfolio-nauh.onrender.com/">
+  <link rel="alternate" hreflang="fr" href="https://portfolio-nauh.onrender.com/">
+  <link rel="alternate" hreflang="en" href="https://portfolio-nauh.onrender.com/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://portfolio-nauh.onrender.com/">
+  <meta name="theme-color" content="#f3f0ea">
+  <meta name="color-scheme" content="light">
 
-/* ambient background (fixed, full-bleed, no overflow) */
-.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.bg span{position:absolute;border-radius:50%;filter:blur(90px)}
-.bg .a{width:min(60vw,720px);aspect-ratio:1;left:-10vw;top:-18vh;background:radial-gradient(circle,var(--accent),transparent 65%);opacity:.28;animation:f1 19s var(--ease) infinite alternate}
-.bg .b{width:min(48vw,560px);aspect-ratio:1;right:-8vw;top:-4vh;background:radial-gradient(circle,var(--warm),transparent 65%);opacity:.16;animation:f2 23s var(--ease) infinite alternate}
-@keyframes f1{to{transform:translate3d(6%,9%,0)}}
-@keyframes f2{to{transform:translate3d(-8%,12%,0)}}
-@media (prefers-reduced-motion:reduce){.bg span{animation:none}}
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Notoavina Tsiresiharidera">
+  <meta property="og:title" content="Notoavina Tsiresiharidera — Développeur frontend freelance Vue.js &amp; React">
+  <meta property="og:description" content="Renfort pour agences, migration Vue 2 vers Vue 3, intégration de maquettes et maintenance. Plus de six ans d’expérience, en remote depuis Antananarivo.">
+  <meta property="og:url" content="https://portfolio-nauh.onrender.com/">
+  <meta property="og:image" content="https://portfolio-nauh.onrender.com/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Notoavina Tsiresiharidera, développeur frontend freelance : titre en serif et illustration d’un soleil sur des rizières en terrasses.">
+  <meta property="profile:first_name" content="Notoavina">
+  <meta property="profile:last_name" content="Tsiresiharidera">
+  <meta name="twitter:card" content="summary_large_image">
 
-.wrap{position:relative;z-index:2;width:min(1180px,90vw);margin-inline:auto}
-section{position:relative;z-index:2}
-.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-/* nav */
-.nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;
-  width:min(1180px,90vw);margin-inline:auto;padding:18px 0}
-.nav::before{content:"";position:absolute;inset:0 -50vw;background:rgba(11,10,18,.6);backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:-1;opacity:0;transition:opacity .3s}
-.nav.stuck::before{opacity:1}
-.nav .brand{font-family:var(--disp);font-weight:800;font-size:18px;letter-spacing:-.01em}
-.nav .brand b{color:var(--accent)}
-.nav .links{display:flex;align-items:center;gap:clamp(14px,2.5vw,28px);font-family:var(--mono);font-size:13px}
-.nav .links a{color:var(--dim);transition:color .2s}
-.nav .links a:hover{color:var(--ink)}
-.nav .cta{color:var(--ink);border:1px solid var(--line);padding:7px 14px;border-radius:100px;transition:.25s}
-.nav .cta:hover{border-color:var(--accent);color:var(--accent)}
-@media(max-width:680px){.nav .links a.nl{display:none}}
+  <script>
+    /* Avant le premier rendu :
+       - active les états d'animation (classe js) ;
+       - choisit la langue : ?lang=…, puis préférence enregistrée, sinon français.
+       Si les modules ne démarrent pas, la page s'affiche telle quelle après 2,5 s. */
+    (function () {
+      var root = document.documentElement;
+      var lang = 'fr';
+      try {
+        var asked = new URLSearchParams(location.search).get('lang');
+        var saved = localStorage.getItem('nt-lang');
+        if (asked === 'fr' || asked === 'en') lang = asked;
+        else if (saved === 'fr' || saved === 'en') lang = saved;
+      } catch (e) {}
+      root.classList.add('js');
+      root.dataset.lang = lang;
+      if (lang !== 'fr') root.classList.add('i18n-pending');
+      setTimeout(function () {
+        if (!window.__ntBooted) root.classList.remove('js', 'i18n-pending');
+      }, 2500);
+    })();
+  </script>
 
-/* hero */
-.hero{padding:clamp(60px,12vh,120px) 0 clamp(50px,8vh,90px)}
-.hero .status{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:13px;color:var(--dim)}
-.hero .status i{width:8px;height:8px;border-radius:50%;background:#4ad08a;box-shadow:0 0 0 0 rgba(74,208,138,.5);animation:pulse 2.4s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(74,208,138,0)}100%{box-shadow:0 0 0 0 rgba(74,208,138,0)}}
-.hero h1{font-size:clamp(40px,9.5vw,118px);font-weight:800;text-transform:uppercase;margin:clamp(18px,3vh,30px) 0 0;
-  overflow-wrap:break-word}
-.hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.hero h1 .o{color:transparent;-webkit-text-stroke:1.4px var(--ink)}
-.hero .role{font-family:var(--mono);font-size:clamp(13px,1.6vw,16px);color:var(--accent-2);margin-top:18px;letter-spacing:.02em}
-.hero .lede{max-width:54ch;color:var(--dim);font-size:clamp(15px,1.4vw,18px);margin-top:clamp(22px,4vh,34px)}
-.hero .lede b{color:var(--ink);font-weight:500}
-.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.btn{font-family:var(--mono);font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding:14px 26px;border-radius:100px;
-  display:inline-flex;align-items:center;gap:10px;transition:transform .3s var(--ease),box-shadow .3s,border-color .25s,color .25s}
-.btn svg{width:15px;height:15px;transition:transform .3s var(--ease)}
-.btn-primary{background:var(--grad);color:#0b0a12;font-weight:500}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(139,107,255,.4)}
-.btn-primary:hover svg{transform:translate(4px,-4px)}
-.btn-ghost{border:1px solid var(--line);color:var(--ink)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap">
 
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:16px;overflow:hidden;margin-top:clamp(40px,7vh,72px)}
-.stat{background:rgba(20,18,31,.7);padding:clamp(18px,3vw,30px)}
-.stat .n{font-family:var(--disp);font-weight:800;font-size:clamp(30px,4.5vw,52px);line-height:1}
-.stat .n em{font-style:normal;color:var(--accent)}
-.stat .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:10px}
-@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/sections/hero.css">
+  <link rel="stylesheet" href="assets/css/sections/projects.css">
+  <link rel="stylesheet" href="assets/css/sections/services.css">
+  <link rel="stylesheet" href="assets/css/sections/process.css">
+  <link rel="stylesheet" href="assets/css/sections/about.css">
+  <link rel="stylesheet" href="assets/css/sections/experience.css">
+  <link rel="stylesheet" href="assets/css/sections/skills.css">
+  <link rel="stylesheet" href="assets/css/sections/contact.css">
 
-/* section head */
-.sh{display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap;
-  margin:clamp(72px,12vh,140px) 0 clamp(24px,4vh,40px);padding-top:24px;border-top:1px solid var(--line)}
-.sh h2{font-size:clamp(28px,5vw,64px)}
-.sh .idx{font-family:var(--mono);font-size:13px;color:var(--dim-2)}
+  <script type="module" src="assets/js/main.js"></script>
 
-/* projects */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,20px)}
-.card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;overflow:hidden;
-  transition:transform .35s var(--ease),border-color .35s}
-.card::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 120% at 0 0,rgba(139,107,255,.12),transparent 55%);
-  opacity:0;transition:opacity .35s}
-.card:hover{transform:translateY(-5px);border-color:rgba(139,107,255,.4)}
-.card:hover::before{opacity:1}
-.card .top{display:flex;justify-content:space-between;align-items:center}
-.card .num{font-family:var(--mono);font-size:12px;color:var(--dim-2)}
-.card .arrow{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.35s}
-.card .arrow svg{width:13px;height:13px;stroke:var(--accent);transition:transform .35s var(--ease)}
-.card:hover .arrow{background:var(--accent);border-color:var(--accent)}
-.card:hover .arrow svg{stroke:#0b0a12;transform:translate(2px,-2px)}
-.card h3{font-size:clamp(18px,2vw,22px);margin:16px 0 8px}
-.card p{color:var(--dim);font-size:14px}
-.card .tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:7px}
-.card .tags span{font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
-@media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.grid{grid-template-columns:1fr}}
-
-/* experience */
-.xp{border-top:1px solid var(--line)}
-.xp .row{display:grid;grid-template-columns:160px 1fr;gap:clamp(16px,3vw,48px);
-  padding:clamp(22px,3.2vw,32px) 0;border-bottom:1px solid var(--line);align-items:start}
-.xp .when{font-family:var(--mono);font-size:13px;color:var(--accent)}
-.xp .when small{display:block;color:var(--dim-2);margin-top:4px}
-.xp h4{font-size:clamp(18px,2.4vw,26px)}
-.xp h4 span{color:var(--dim);font-weight:400}
-.xp p{color:var(--dim);max-width:62ch;margin-top:8px;font-size:14px}
-.xp .tech{font-family:var(--mono);font-size:11px;color:var(--dim-2);margin-top:12px}
-@media(max-width:680px){.xp .row{grid-template-columns:1fr;gap:6px}}
-
-/* stack */
-.stack{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:16px;overflow:hidden}
-.scell{background:var(--panel);padding:clamp(20px,2.6vw,28px)}
-.scell .h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.scell ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.scell li{font-family:var(--disp);font-weight:500;font-size:clamp(15px,1.5vw,18px);display:flex;align-items:center;gap:9px;transition:color .2s,transform .25s var(--ease)}
-.scell li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--dim-2);transition:background .2s}
-.scell li:hover{color:var(--accent);transform:translateX(4px)}
-.scell li:hover::before{background:var(--accent)}
-@media(max-width:860px){.stack{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:460px){.stack{grid-template-columns:1fr}}
-
-/* contact */
-.contact{padding:clamp(80px,14vh,170px) 0 70px}
-.contact h2{font-size:clamp(30px,7vw,84px);line-height:1.02}
-.contact h2 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.contact .mail{display:inline-block;font-family:var(--mono);font-size:clamp(15px,2.4vw,26px);margin-top:28px;
-  border-bottom:1px solid var(--line);padding-bottom:5px;transition:color .25s,border-color .25s;word-break:break-word}
-.contact .mail:hover{color:var(--accent);border-color:var(--accent)}
-.cmeta{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:clamp(40px,7vh,64px);
-  border-top:1px solid var(--line);padding-top:30px}
-.cmeta .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim-2);margin-bottom:10px}
-.cmeta p{color:var(--ink)}
-.cmeta span{color:var(--dim)}
-@media(max-width:680px){.cmeta{grid-template-columns:1fr;gap:24px}}
-.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:clamp(50px,9vh,90px);
-  padding-top:22px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--dim-2);text-transform:uppercase;letter-spacing:.05em}
-.foot a:hover{color:var(--accent)}
-
-/* reveal (only hides when JS is active) */
-.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.js .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}}
-</style>
-</head>
-<body>
-<div class="bg" aria-hidden="true"><span class="a"></span><span class="b"></span></div>
-
-<nav class="nav" id="nav">
-  <a class="brand" href="#top">Notoavina<b>.</b></a>
-  <div class="links">
-    <a class="nl" href="#projets">Projets</a>
-    <a class="nl" href="#parcours">Parcours</a>
-    <a class="cta" href="#contact">Contact</a>
-  </div>
-</nav>
-
-<main id="top">
-<section class="hero wrap">
-  <span class="status"><i></i>Disponible pour de nouveaux projets · Antananarivo</span>
-  <h1><span class="g">Notoavina</span><br>Misaharison<br><span class="o">Tsiresiharidera</span></h1>
-  <div class="role">// Développeur Frontend — Vue · React · Next · 7 ans</div>
-  <p class="lede">Je conçois des interfaces <b>rapides, soignées et durables</b>. Du e-commerce à la santé numérique, sept ans à transformer des maquettes en produits web fiables et agréables à utiliser.</p>
-  <div class="actions">
-    <a class="btn btn-primary" href="#projets">Voir mes projets <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6" stroke-width="2"/></svg></a>
-    <a class="btn btn-ghost" href="#contact">Me contacter</a>
-  </div>
-
-  <div class="stats">
-    <div class="stat reveal"><div class="n"><em>7</em></div><div class="k">Années d'expérience</div></div>
-    <div class="stat reveal"><div class="n">15<em>+</em></div><div class="k">Projets livrés</div></div>
-    <div class="stat reveal"><div class="n"><em>6</em></div><div class="k">Frameworks maîtrisés</div></div>
-    <div class="stat reveal"><div class="n"><em>3</em></div><div class="k">Langues parlées</div></div>
-  </div>
-</section>
-
-<section class="wrap" id="projets">
-  <div class="sh reveal"><h2>Projets sélectionnés</h2><span class="idx">01 — 12</span></div>
-  <div class="grid" id="grid"></div>
-</section>
-
-<section class="wrap" id="parcours">
-  <div class="sh reveal"><h2>Parcours</h2><span class="idx">2018 — 2026</span></div>
-  <div class="xp" id="xp"></div>
-</section>
-
-<section class="wrap" id="stack">
-  <div class="sh reveal"><h2>Compétences</h2><span class="idx">Stack &amp; outils</span></div>
-  <div class="stack reveal">
-    <div class="scell"><div class="h">Langages</div><ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>SQL</li></ul></div>
-    <div class="scell"><div class="h">Frameworks</div><ul><li>Vue 3</li><li>React</li><li>Next.js</li><li>Angular</li><li>Tailwind</li><li>Bootstrap</li></ul></div>
-    <div class="scell"><div class="h">Données & état</div><ul><li>Pinia / Vuex</li><li>MySQL</li><li>PostgreSQL</li><li>IndexedDB</li></ul></div>
-    <div class="scell"><div class="h">Outils & ops</div><ul><li>Git</li><li>GitHub Actions</li><li>Docker</li><li>Sass</li><li>Jest / Sentry</li><li>Linux</li></ul></div>
-  </div>
-</section>
-
-<section class="wrap contact" id="contact">
-  <div class="sh reveal" style="margin-bottom:0"><h2>Travaillons <span class="g">ensemble</span></h2><span class="idx">05</span></div>
-  <a class="mail reveal" href="mailto:mtsiresiharidera@gmail.com">mtsiresiharidera@gmail.com</a>
-  <div class="cmeta reveal">
-    <div><div class="k">Téléphone</div><p>+261 32 74 353 46</p></div>
-    <div><div class="k">Localisation</div><p>Antananarivo, Madagascar</p><span>EAT · UTC+3 — <span id="clk">--:--</span></span></div>
-    <div><div class="k">Langues & formation</div><p>Malagasy · Français · Anglais</p><span>Master Informatique 2023 · Licence Pro 2018</span></div>
-  </div>
-  <div class="foot"><span>© 2026 Notoavina Tsiresiharidera</span><a href="#top">Retour en haut ↑</a></div>
-</section>
-</main>
-
-<script>
-document.documentElement.classList.add('js');
-(function(){
-  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-  /* projects */
-  var P=[
-    ['Plateforme immobilière','Recherche cartographiée, annonces et paiement en ligne.',['Vue 3','Tailwind','Stripe','Leaflet','Pinia']],
-    ['Boutique avec aperçu 3D','Fiche produit avec rendu interactif.',['Vue 3','Tailwind','Pinia']],
-    ['Application de rencontre B2B','Mise en relation entre entreprises.',['React','Tailwind','Shadcn']],
-    ['Application de guide','Découverte de lieux et itinéraires.',['Next.js','Tailwind']],
-    ['Landing app IA','Présentation produit haute conversion.',['Next.js','Tailwind','Shadcn']],
-    ['Monitoring d\'infra IT','Supervision temps réel & gestion de projet.',['React','Ant Design']],
-    ['Gestion des absences','Outil RH pour le groupe AXIAN.',['Angular','Bootstrap']],
-    ['Accès aux soins — Mtomady','Application critique, fonctionnelle hors-ligne.',['Vue 2/3','Pinia','PWA','IndexedDB','Jest','Sentry']],
-    ['Recherche de bourses','Plateforme avec back-office complet.',['Vue','Vuex','Bootstrap','i18n']],
-    ['Prospection LinkedIn & WhatsApp','Outil commercial multi-canal.',['Vue 3','Pinia']],
-    ['Packs Tour de France · B2B','Site de vente de packs entreprise.',['Next.js','Shadcn','Tailwind']],
-    ['Gestion des POS','Points de vente pour le groupe AXIAN.',['Angular','Sass']]
-  ];
-  var arrow='<span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6" stroke-width="2"/></svg></span>';
-  document.getElementById('grid').innerHTML=P.map(function(p,i){
-    return '<a class="card reveal" href="#contact"><div class="top"><span class="num">'+('0'+(i+1)).slice(-2)+'</span>'+arrow+'</div>'+
-      '<h3>'+p[0]+'</h3><p>'+p[1]+'</p><div class="tags">'+p[2].map(function(t){return '<span>'+t+'</span>';}).join('')+'</div></a>';
-  }).join('');
-
-  /* experience */
-  var X=[
-    ['2024 → 2026','My Agency','Développeur Frontend Senior','Immobilier, boutique avec aperçu 3D, landing d\'app IA, plateforme d\'événements et monitoring d\'infrastructure IT.','TypeScript · Vue 3 · React · Next.js · Tailwind · Pinia · Shadcn · Stripe'],
-    ['2023','Expat.com','Développeur Frontend','Maintenance évolutive d\'un site à fort trafic dédié aux expatriés.','Vue 2 · Sass · Bootstrap · Twig · jQuery'],
-    ['2022 → 2023','Mtomady','Frontend Vue.js','Application web critique facilitant l\'accès aux soins, pensée hors-ligne.','Vue 2/3 · Pinia · PWA · IndexedDB · Jest · Sentry'],
-    ['2022','Pulse','Développeur Frontend','Agence de voyage, gestion d\'absences et POS pour le groupe AXIAN, suivi de projet.','Angular 12 · Vue.js · Sass · MJML'],
-    ['2021 → 2022','Hightao-MG','Frontend Vue.js','Plateforme de recherche de bourses avec back-office et internationalisation.','Vue.js · Vuex · Bootstrap 4 · i18n'],
-    ['2020','Stew Travel','Web Developer','Maintenance évolutive d\'une agence de voyage.','PHP · Laravel · jQuery · Bootstrap'],
-    ['2019 → 2020','Advalorem','PrestaShop Developer · Alternance','Personnalisation et intégration de boutiques e-commerce.','PrestaShop · PHP · HTML · CSS · JS'],
-    ['2018','Labirint','Fullstack Java · Stage','Premier stage : comprendre la stack de bout en bout.','Java · SQL · HTML · CSS']
-  ];
-  document.getElementById('xp').innerHTML=X.map(function(x){
-    return '<div class="row reveal"><div class="when">'+x[0]+'<small>'+x[1]+'</small></div>'+
-      '<div><h4>'+x[2]+' <span>· '+x[1]+'</span></h4><p>'+x[3]+'</p><div class="tech">'+x[4]+'</div></div></div>';
-  }).join('');
-
-  /* reveal */
-  if('IntersectionObserver' in window && !reduce){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-  } else {
-    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Notoavina Misaharison Tsiresiharidera",
+    "givenName": "Notoavina",
+    "familyName": "Tsiresiharidera",
+    "jobTitle": "Développeur frontend freelance Vue.js & React",
+    "url": "https://portfolio-nauh.onrender.com/",
+    "email": "mailto:mtsiresiharidera@gmail.com",
+    "telephone": "+261327435346",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Antananarivo",
+      "addressCountry": "MG"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Institut Supérieur Spécialisé en Informatique et Gestion" },
+      { "@type": "EducationalOrganization", "name": "Athénée Saint Joseph", "address": "Antsirabe, Madagascar" }
+    ],
+    "knowsLanguage": ["mg", "fr", "en"],
+    "knowsAbout": ["Développement frontend", "Vue.js", "Nuxt", "React", "Next.js", "TypeScript", "Angular", "Tailwind CSS", "Progressive Web Apps", "Accessibilité web", "Performance web"],
+    "sameAs": [
+      "https://www.linkedin.com/in/notoavina-misaharison-tsiresiharidera-6b7865191",
+      "https://github.com/NotoavinaMG"
+    ]
   }
+  </script>
+</head>
 
-  /* nav background on scroll */
-  var nav=document.getElementById('nav');
-  function onScroll(){ nav.classList.toggle('stuck', scrollY>20); }
-  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+<body>
+  <a class="skip" href="#contenu" data-i18n="skip">Aller au contenu</a>
+  <p class="sr-only" role="status" data-lang-status></p>
 
-  /* clock */
-  function clk(){ try{ document.getElementById('clk').textContent=new Date().toLocaleTimeString('fr-FR',{timeZone:'Indian/Antananarivo',hour12:false}).slice(0,5); }catch(e){} }
-  clk(); setInterval(clk,30000);
-})();
-</script>
+  <!-- Navigation ============================================================ -->
+  <header class="nav" data-nav>
+    <div class="nav__inner wrap">
+      <a class="nav__brand" href="#accueil">
+        <span class="nav__mark" aria-hidden="true">N</span>
+        <span>Notoavina<span class="nav__last"> Tsiresiharidera</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Navigation principale" data-i18n-attr="aria-label:nav.label">
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#projets" data-i18n="nav.projects">Projets</a>
+        <a href="#methode" data-i18n="nav.process">Méthode</a>
+        <a href="#parcours" data-i18n="nav.experience">Parcours</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Langue" data-i18n-attr="aria-label:lang.label">
+        <span class="lang__thumb" aria-hidden="true"></span>
+        <button type="button" lang="fr" aria-label="Français" aria-pressed="true" data-lang-set="fr">FR</button>
+        <button type="button" lang="en" aria-label="English" aria-pressed="false" data-lang-set="en">EN</button>
+      </div>
+      <a class="btn btn--ink btn--sm nav__cta" href="#contact" data-i18n="nav.cta">Me contacter</a>
+      <button class="nav__menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu" data-menu-open>
+        <span data-i18n="nav.menu">Menu</span> <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="menu" id="menu" aria-label="Menu">
+    <div class="menu__top wrap">
+      <span class="nav__brand"><span class="nav__mark" aria-hidden="true">N</span><span>Notoavina</span></span>
+      <button class="nav__menu" type="button" data-menu-close data-i18n="nav.close">Fermer</button>
+    </div>
+    <nav class="wrap" aria-label="Menu">
+      <ul class="menu__list">
+        <li style="--i:0"><a href="#services"><span data-i18n="nav.services">Services</span> <span class="num">01</span></a></li>
+        <li style="--i:1"><a href="#projets"><span data-i18n="nav.projects">Projets</span> <span class="num">02</span></a></li>
+        <li style="--i:2"><a href="#methode"><span data-i18n="nav.process">Méthode</span> <span class="num">03</span></a></li>
+        <li style="--i:3"><a href="#apropos"><span data-i18n="nav.about">À propos</span> <span class="num">04</span></a></li>
+        <li style="--i:4"><a href="#parcours"><span data-i18n="nav.experience">Parcours</span> <span class="num">05</span></a></li>
+        <li style="--i:5"><a href="#competences"><span data-i18n="nav.skills">Compétences</span> <span class="num">06</span></a></li>
+        <li style="--i:6"><a href="#contact"><span data-i18n="nav.contact">Contact</span> <span class="num">07</span></a></li>
+      </ul>
+    </nav>
+    <div class="menu__foot wrap">
+      <p>mtsiresiharidera@gmail.com<br>Antananarivo · <time data-clock>--:--</time></p>
+    </div>
+  </dialog>
+
+  <main id="contenu">
+
+    <!-- Accueil ============================================================ -->
+    <section class="hero" id="accueil" data-hero aria-labelledby="hero-title" tabindex="-1">
+      <div class="hero__inner wrap">
+        <div class="hero__text">
+          <h1 class="hero__title" id="hero-title">
+            <span class="sr-only" data-i18n="hero.sr">Notoavina Tsiresiharidera — </span>
+            <span class="mask"><span style="--delay:60ms" data-i18n="hero.line1">Développeur frontend</span></span>
+            <span class="mask"><span style="--delay:130ms" data-i18n="hero.line2">freelance, spécialiste</span></span>
+            <span class="mask"><span style="--delay:200ms" data-i18n="hero.line3"><em>Vue.js et React</em>.</span></span>
+          </h1>
+
+          <p class="hero__lede" data-intro style="--delay:380ms" data-i18n="hero.lede">Je suis <strong>Notoavina Tsiresiharidera</strong>. J’aide les agences et les startups à livrer des interfaces rapides et maintenables, de la maquette à la mise en ligne, en remote depuis Antananarivo.</p>
+
+          <div class="hero__actions" data-intro style="--delay:460ms">
+            <a class="btn btn--ink" href="#contact"><span data-i18n="hero.ctaContact">Démarrer un projet</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-dir="right"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#projets" data-i18n="hero.ctaProjects">Voir les projets</a>
+            <a class="text-link" href="assets/cv/notoavina-tsiresiharidera-cv.pdf" data-i18n-attr="href:cv.href" download>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v9M4 7l4 4 4-4M3 14h10"/></svg>
+              <span data-i18n="hero.cv">Télécharger mon CV</span>
+            </a>
+          </div>
+        </div>
+
+        <figure class="hero__art" data-intro style="--delay:200ms">
+          <svg viewBox="0 0 400 500" role="img" aria-labelledby="art-title">
+            <title id="art-title" data-i18n="hero.art">Soleil levant sur les rizières en terrasses des hautes terres de Madagascar</title>
+            <defs>
+              <clipPath id="arch"><path d="M0 500V200a200 200 0 0 1 400 0v300z"/></clipPath>
+              <clipPath id="clip-mid"><path d="M-10 362C80 336 150 340 220 362s120 10 190-14V560H-10z"/></clipPath>
+              <clipPath id="clip-front"><path d="M-10 420C70 396 140 388 210 402s120 34 200 12V560H-10z"/></clipPath>
+              <path id="line-mid" d="M-10 362C80 336 150 340 220 362s120 10 190-14"/>
+              <path id="line-front" d="M-10 420C70 396 140 388 210 402s120 34 200 12"/>
+            </defs>
+            <g clip-path="url(#arch)">
+              <rect width="400" height="500" fill="#eae5dc"/>
+              <g class="art__sun"><g class="art__px-sun">
+                <g class="art__rings" fill="none" stroke="#b4441f" stroke-width="1.2">
+                  <circle cx="250" cy="226" r="82" stroke-opacity=".34"/>
+                  <circle cx="250" cy="226" r="110" stroke-opacity=".22"/>
+                  <circle cx="250" cy="226" r="138" stroke-opacity=".13"/>
+                  <circle cx="250" cy="226" r="166" stroke-opacity=".07"/>
+                </g>
+                <circle cx="250" cy="226" r="56" fill="#b4441f"/>
+              </g></g>
+              <g class="art__far"><g class="art__px-far">
+                <path d="M-10 318C60 286 120 290 180 308s130-8 230-30V560H-10z" fill="#ddd4c6"/>
+              </g></g>
+              <g class="art__mid"><g class="art__px-mid">
+                <path d="M-10 362C80 336 150 340 220 362s120 10 190-14V560H-10z" fill="#d3a588"/>
+                <g clip-path="url(#clip-mid)" fill="none" stroke="#b4441f" stroke-opacity=".32" stroke-width="1.2">
+                  <use href="#line-mid" y="14"/><use href="#line-mid" y="28"/><use href="#line-mid" y="42"/><use href="#line-mid" y="56"/>
+                </g>
+              </g></g>
+              <g class="art__front"><g class="art__px-front">
+                <path d="M-10 420C70 396 140 388 210 402s120 34 200 12V560H-10z" fill="#1b1815"/>
+                <g clip-path="url(#clip-front)" fill="none" stroke="#f3f0ea" stroke-opacity=".18" stroke-width="1.2">
+                  <use href="#line-front" y="12"/><use href="#line-front" y="24"/><use href="#line-front" y="36"/><use href="#line-front" y="48"/><use href="#line-front" y="60"/><use href="#line-front" y="72"/><use href="#line-front" y="84"/>
+                </g>
+              </g></g>
+            </g>
+          </svg>
+          <figcaption class="hero__caption">
+            <span>Antananarivo, Madagascar</span>
+            <span><time data-clock>--:--</time> · UTC+3</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap">
+        <dl class="hero__facts" data-intro style="--delay:560ms">
+          <div><dt data-i18n="hero.fact1.label">d’expérience</dt><dd data-i18n="hero.fact1.value">6+ ans</dd></div>
+          <div><dt data-i18n="hero.fact2.label">projets livrés</dt><dd>15+</dd></div>
+          <div><dt data-i18n="hero.fact3.label">1 à 2 h d’écart avec Paris</dt><dd>UTC+3</dd></div>
+          <div><dt data-i18n="hero.fact4.label">langues parlées</dt><dd>3</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Confiance ========================================================== -->
+    <section class="trust" aria-labelledby="trust-title">
+      <div class="wrap">
+        <div class="trust__inner" data-reveal>
+          <h2 class="trust__label" id="trust-title" data-i18n="trust.label">Expérience chez</h2>
+          <ul class="trust__list">
+            <li>My Agency</li>
+            <li>Expat.com</li>
+            <li>Mtomady</li>
+            <li data-i18n="trust.axian">Groupe AXIAN</li>
+            <li>Hightao-MG</li>
+            <li>Stew Travel</li>
+            <li>Advalorem</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · Services ====================================================== -->
+    <section class="section services" id="services" aria-labelledby="services-title" tabindex="-1">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="num">01</span><span data-i18n="services.eyebrow">Services</span></p>
+          <h2 class="section-title" id="services-title" data-reveal style="--delay:60ms" data-i18n="services.title">Ce que je peux <em>faire pour vous</em></h2>
+          <p class="section-intro" data-reveal style="--delay:120ms" data-i18n="services.intro">En freelance et en remote, en autonomie ou au sein de votre équipe Agile.</p>
+        </header>
+
+        <ol class="service-list">
+          <li class="service" data-reveal>
+            <span class="service__num" aria-hidden="true">01</span>
+            <svg class="service__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="11" r="4"/><circle cx="22.5" cy="12.5" r="3"/><path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8M20.5 19.2c4.3-.6 7.5 2.3 7.5 6.8"/></svg>
+            <h3 class="service__title" data-i18n="s1.title">Renfort pour agences</h3>
+            <p data-i18n="s1.text">Je rejoins votre équipe sur un projet Vue, Nuxt, React ou Next, à temps plein ou partiel, avec vos outils.</p>
+          </li>
+          <li class="service" data-reveal style="--delay:60ms">
+            <span class="service__num" aria-hidden="true">02</span>
+            <svg class="service__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="10" height="14" rx="2"/><rect x="19" y="9" width="10" height="14" rx="2"/><path d="M14.5 16h3m-1.5-2 2 2-2 2"/></svg>
+            <h3 class="service__title" data-i18n="s2.title">Migration Vue 2 → Vue 3</h3>
+            <p data-i18n="s2.text">Vue 2 n’est plus maintenu depuis fin 2023. Je migre votre application étape par étape, en limitant les risques.</p>
+          </li>
+          <li class="service" data-reveal style="--delay:120ms">
+            <span class="service__num" aria-hidden="true">03</span>
+            <svg class="service__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="24" height="20" rx="3"/><path d="M4 12h24M12 12v14"/></svg>
+            <h3 class="service__title" data-i18n="s3.title">Intégration de maquettes</h3>
+            <p data-i18n="s3.text">Vos maquettes deviennent des pages Vue/Nuxt ou React/Next fidèles, responsive et accessibles.</p>
+          </li>
+          <li class="service" data-reveal style="--delay:180ms">
+            <span class="service__num" aria-hidden="true">04</span>
+            <svg class="service__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 5.5a6 6 0 0 0-7.4 7.6L5.6 20.6a2.8 2.8 0 0 0 4 4l7.5-7.5a6 6 0 0 0 7.6-7.4l-3.6 3.6-3.2-.8-.8-3.2z"/></svg>
+            <h3 class="service__title" data-i18n="s4.title">Maintenance évolutive</h3>
+            <p data-i18n="s4.text">Nouvelles fonctionnalités, corrections et performances sur un site existant, même de grande envergure.</p>
+          </li>
+        </ol>
+
+        <div class="services__cta" data-reveal>
+          <p data-i18n="services.ctaText">Un besoin précis, une mission à confier&#8239;?</p>
+          <a class="btn btn--ink" href="#contact"><span data-i18n="services.cta">Parlons-en</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-dir="right"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · Projets ======================================================= -->
+    <section class="section projects" id="projets" aria-labelledby="projets-title" tabindex="-1">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="num">02</span><span data-i18n="projects.eyebrow">Projets</span></p>
+          <h2 class="section-title" id="projets-title" data-reveal style="--delay:60ms" data-i18n="projects.title">Une sélection <em>de projets</em></h2>
+          <p class="section-intro" data-reveal style="--delay:120ms" data-i18n="projects.intro">Douze projets parmi plus de quinze livrés en agence et en entreprise&#8239;: plateformes grand public, applications métier et sites à fort trafic.</p>
+        </header>
+
+        <ul class="cards">
+          <li class="card" data-reveal>
+            <figure class="card__art"><img src="assets/img/art/immobilier.svg" alt="" width="480" height="360" loading="lazy" decoding="async"></figure>
+            <div class="card__body">
+              <p class="card__meta"><span data-i18n="p1.sector">Immobilier</span><span>My Agency</span></p>
+              <h3 class="card__title" data-i18n="p1.title">Plateforme de vente immobilière</h3>
+              <p class="card__desc" data-i18n="p1.desc">Recherche cartographiée, annonces et paiement en ligne.</p>
+              <ul class="tags" aria-label="Technologies" data-i18n-attr="aria-label:tech"><li>Vue 3</li><li>Tailwind</li><li>Stripe</li><li>Leaflet</li><li>Pinia</li></ul>
+            </div>
+          </li>
+          <li class="card" data-reveal style="--delay:80ms">
+            <figure class="card__art"><img src="assets/img/art/sante.svg" alt="" width="480" height="360" loading="lazy" decoding="async"></figure>
+            <div class="card__body">
+              <p class="card__meta"><span data-i18n="p2.sector">Santé</span><span>Mtomady</span></p>
+              <h3 class="card__title" data-i18n="p2.title">Accès aux soins, hors-ligne</h3>
+              <p class="card__desc" data-i18n="p2.desc">PWA critique qui continue de fonctionner quand le réseau tombe, avec suivi des erreurs en production.</p>
+              <ul class="tags" aria-label="Technologies" data-i18n-attr="aria-label:tech"><li>Vue 2/3</li><li>Pinia</li><li>PWA</li><li>IndexedDB</li><li>Jest</li><li>Sentry</li></ul>
+            </div>
+          </li>
+          <li class="card" data-reveal>
+            <figure class="card__art"><img src="assets/img/art/boutique-3d.svg" alt="" width="480" height="360" loading="lazy" decoding="async"></figure>
+            <div class="card__body">
+              <p class="card__meta"><span data-i18n="p3.sector">E-commerce</span><span>My Agency</span></p>
+              <h3 class="card__title" data-i18n="p3.title">Boutique avec aperçu 3D</h3>
+              <p class="card__desc" data-i18n="p3.desc">Vente d’articles avec un rendu 3D interactif sur la fiche produit.</p>
+              <ul class="tags" aria-label="Technologies" data-i18n-attr="aria-label:tech"><li>Vue 3</li><li>Tailwind</li><li>Pinia</li></ul>
+            </div>
+          </li>
+          <li class="card" data-reveal style="--delay:80ms">
+            <figure class="card__art"><img src="assets/img/art/monitoring.svg" alt="" width="480" height="360" loading="lazy" decoding="async"></figure>
+            <div class="card__body">
+              <p class="card__meta"><span data-i18n="p4.sector">Infrastructure</span><span>My Agency</span></p>
+              <h3 class="card__title" data-i18n="p4.title">Monitoring d’infrastructure IT</h3>
+              <p class="card__desc" data-i18n="p4.desc">Supervision en temps réel et gestion de projet.</p>
+              <ul class="tags" aria-label="Technologies" data-i18n-attr="aria-label:tech"><li>React</li><li>Ant Design</li></ul>
+            </div>
+          </li>
+        </ul>
+
+        <div class="more">
+          <div class="more__head" data-reveal>
+            <h3 class="more__title" data-i18n="more.title">Autres projets</h3>
+            <p class="more__count" data-i18n="more.count">08 projets</p>
+          </div>
+          <ul class="more__list">
+            <li class="row" data-reveal>
+              <div><p class="row__title" data-i18n="r1.title">Rencontres B2B</p><p class="row__desc" data-i18n="r1.desc">Mise en relation entre entreprises.</p></div>
+              <p class="row__sector" data-i18n="r1.sector">Réseau professionnel</p>
+              <p class="row__stack">React · Tailwind · shadcn/ui</p>
+            </li>
+            <li class="row" data-reveal>
+              <div><p class="row__title" data-i18n="r2.title">Guide de découverte</p><p class="row__desc" data-i18n="r2.desc">Découverte de lieux et d’itinéraires.</p></div>
+              <p class="row__sector" data-i18n="r2.sector">Tourisme</p>
+              <p class="row__stack">Next.js · Tailwind</p>
+            </li>
+            <li class="row" data-reveal>
+              <div><p class="row__title" data-i18n="r3.title">Landing d’une app IA</p><p class="row__desc" data-i18n="r3.desc">Landing page d’une application mobile basée sur l’IA.</p></div>
+              <p class="row__sector" data-i18n="r3.sector">SaaS · IA</p>
+              <p class="row__stack">Next.js · Tailwind · shadcn/ui</p>
+            </li>
+            <li class="row" data-reveal>
+              <div><p class="row__title" data-i18n="r4.title">Packs Tour de France</p><p class="row__desc" data-i18n="r4.desc">Vente de packs entreprise autour de la course.</p></div>
+              <p class="row__sector" data-i18n="r4.sector">Événementiel · B2B</p>
+              <p class="row__stack">Next.js · shadcn/ui · Tailwind</p>
+            </li>
+            <li class="row" data-reveal>
+              <div><p class="row__title" data-i18n="r5.title">Recherche de bourses</p><p class="row__desc" data-i18n="r5.desc">Plateforme publique, back-office et internationalisation.</p></div>
+              <p class="row__sector" data-i18n="r5.sector">Éducation</p>
+              <p class="row__stack">Vue · Vuex · Bootstrap · i18n</p>
+            </li>
+            <li class="row" data-reveal>
+              <div><p class="row__title" data-i18n="r6.title">Prospection multicanal</p><p class="row__desc" data-i18n="r6.desc">Outil commercial pour LinkedIn et WhatsApp.</p></div>
+              <p class="row__sector" data-i18n="r6.sector">Outil commercial</p>
+              <p class="row__stack">Vue 3 · Pinia</p>
+            </li>
+            <li class="row" data-reveal>
+              <div><p class="row__title" data-i18n="r7.title">Gestion des absences</p><p class="row__desc" data-i18n="r7.desc">Outil RH interne pour le groupe AXIAN.</p></div>
+              <p class="row__sector" data-i18n="r7.sector">RH · AXIAN</p>
+              <p class="row__stack">Angular · Bootstrap</p>
+            </li>
+            <li class="row" data-reveal>
+              <div><p class="row__title" data-i18n="r8.title">Points de vente</p><p class="row__desc" data-i18n="r8.desc">Gestion des points de vente (POS) pour le groupe AXIAN.</p></div>
+              <p class="row__sector" data-i18n="r8.sector">Retail · AXIAN</p>
+              <p class="row__stack">Angular · Sass</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Méthode ======================================================= -->
+    <section class="section process" id="methode" aria-labelledby="methode-title" tabindex="-1">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="num">03</span><span data-i18n="process.eyebrow">Méthode</span></p>
+          <h2 class="section-title" id="methode-title" data-reveal style="--delay:60ms" data-i18n="process.title">Comment <em>je travaille</em></h2>
+          <p class="section-intro" data-reveal style="--delay:120ms" data-i18n="process.intro">Une collaboration simple et transparente, à distance.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="step__num" aria-hidden="true">01</span>
+            <h3 class="step__title" data-i18n="step1.title">Échange</h3>
+            <p data-i18n="step1.text">Un appel pour comprendre votre projet, vos délais et votre stack.</p>
+          </li>
+          <li class="step" data-reveal style="--delay:60ms">
+            <span class="step__num" aria-hidden="true">02</span>
+            <h3 class="step__title" data-i18n="step2.title">Proposition</h3>
+            <p data-i18n="step2.text">Un périmètre clair, un planning et un format adapté&#8239;: forfait ou régie.</p>
+          </li>
+          <li class="step" data-reveal style="--delay:120ms">
+            <span class="step__num" aria-hidden="true">03</span>
+            <h3 class="step__title" data-i18n="step3.title">Développement</h3>
+            <p data-i18n="step3.text">Des livraisons régulières et des démos pour valider chaque étape.</p>
+          </li>
+          <li class="step" data-reveal style="--delay:180ms">
+            <span class="step__num" aria-hidden="true">04</span>
+            <h3 class="step__title" data-i18n="step4.title">Mise en ligne et suivi</h3>
+            <p data-i18n="step4.text">Déploiement, corrections, puis maintenance évolutive si besoin.</p>
+          </li>
+        </ol>
+
+        <dl class="practical" data-reveal>
+          <div><dt data-i18n="practical.tz.label">Fuseau horaire</dt><dd data-i18n="practical.tz.value">UTC+3&#8239;: 1 à 2 h d’écart avec Paris, de larges plages horaires communes.</dd></div>
+          <div><dt data-i18n="practical.format.label">Formats</dt><dd data-i18n="practical.format.value">Forfait ou régie, à temps plein ou à temps partiel.</dd></div>
+          <div><dt data-i18n="practical.tools.label">Échanges</dt><dd data-i18n="practical.tools.value">En français ou en anglais, avec vos outils&#8239;: Jira, Trello, Confluence, Git.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 04 · À propos ====================================================== -->
+    <section class="section about" id="apropos" aria-labelledby="apropos-title" tabindex="-1">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="num">04</span><span data-i18n="about.eyebrow">À propos</span></p>
+          <h2 class="section-title" id="apropos-title" data-reveal style="--delay:60ms" data-i18n="about.title">Le soin du détail, <em>à chaque ligne</em></h2>
+        </header>
+
+        <div class="about__grid">
+          <p class="about__lede" data-reveal data-i18n="about.lede">Développeur frontend depuis plus de six ans, spécialisé en Vue.js et React. Application de santé critique, site à fort trafic, outils d’un grand groupe&#8239;: je conçois des interfaces performantes, accessibles et faciles à maintenir.</p>
+
+          <dl class="about__facts" data-reveal style="--delay:80ms">
+            <div><dt data-i18n="about.based.label">Basé à</dt><dd data-i18n="about.based.value">Antananarivo, Madagascar<br><span class="muted">Travail en remote</span></dd></div>
+            <div><dt data-i18n="about.languages.label">Langues</dt><dd data-i18n="about.languages.value">Malagasy (natif), français (courant), anglais (intermédiaire)</dd></div>
+            <div><dt data-i18n="about.education.label">Formation</dt><dd data-i18n="about.education.value">Master en informatique, 2023<br><span class="muted">Institut Supérieur Spécialisé en Informatique et Gestion</span><br>Licence professionnelle en informatique, 2018<br><span class="muted">Athénée Saint Joseph, Antsirabe</span></dd></div>
+            <div><dt data-i18n="about.interests.label">En dehors du code</dt><dd data-i18n="about.interests.value">Lecture, basket-ball, personnalisation de Linux</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Parcours ====================================================== -->
+    <section class="section experience" id="parcours" aria-labelledby="parcours-title" tabindex="-1">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="num">05</span><span data-i18n="experience.eyebrow">Parcours</span></p>
+          <h2 class="section-title" id="parcours-title" data-reveal style="--delay:60ms" data-i18n="experience.title">Plus de six ans, <em>du stage au freelance</em></h2>
+          <p class="section-intro" data-reveal style="--delay:120ms" data-i18n="experience.intro">De la startup au grand groupe, en agence comme en entreprise, aujourd’hui en indépendant.</p>
+        </header>
+
+        <ol class="jobs">
+          <li class="job job--current" data-reveal>
+            <p class="job__years" data-i18n="job0.years">Depuis <time datetime="2026-06">juin 2026</time></p>
+            <div><h3 class="job__role" data-i18n="job0.role">Développeur frontend freelance</h3><p class="job__org" data-i18n="job0.org">Indépendant · remote</p></div>
+            <div><p class="job__desc" data-i18n="job0.desc">Conception et développement d’interfaces pour divers clients&#8239;: intégration de maquettes, composants réutilisables, optimisation des performances et intégration d’APIs.</p><p class="job__stack">Vue.js 3 · React · Next.js · TypeScript · Tailwind · Git</p></div>
+          </li>
+          <li class="job" data-reveal>
+            <p class="job__years" data-i18n="job1.years"><time datetime="2024-01">Janv. 2024</time> — <time datetime="2026-06">juin 2026</time></p>
+            <div><h3 class="job__role" data-i18n="job1.role">Développeur frontend</h3><p class="job__org">My Agency</p></div>
+            <div><p class="job__desc" data-i18n="job1.desc">Vente immobilière, landing page d’une application mobile basée sur l’IA, boutique avec aperçu 3D, plateforme d’organisation d’événements, monitoring d’infrastructure IT et gestion de projet.</p><p class="job__stack">TypeScript · Vue.js 3 · Vuex · React · Jotai · Next.js · Tailwind · shadcn/ui · Ant Design Vue · Leaflet · Stripe</p></div>
+          </li>
+          <li class="job" data-reveal>
+            <p class="job__years" data-i18n="job2.years"><time datetime="2023-09">Sept. 2023</time> — <time datetime="2023-12">déc. 2023</time></p>
+            <div><h3 class="job__role" data-i18n="job2.role">Développeur frontend</h3><p class="job__org">Expat.com</p></div>
+            <div><p class="job__desc" data-i18n="job2.desc">Maintenance évolutive d’un site de grande envergure dédié aux expatriés&#8239;: nouvelles fonctionnalités et corrections.</p><p class="job__stack">Vue.js 2 · JavaScript · Sass · Twig · Jira</p></div>
+          </li>
+          <li class="job" data-reveal>
+            <p class="job__years" data-i18n="job3.years"><time datetime="2022-07">Juil. 2022</time> — <time datetime="2023-08">août 2023</time></p>
+            <div><h3 class="job__role" data-i18n="job3.role">Développeur frontend Vue.js</h3><p class="job__org">Mtomady</p></div>
+            <div><p class="job__desc" data-i18n="job3.desc">Maintenance évolutive d’une application web facilitant l’accès aux soins&#8239;: PWA avec gestion hors-ligne et suivi des erreurs en production.</p><p class="job__stack">Vue.js 2/3 · Pinia · IndexedDB · PWA · Jest · Sentry</p></div>
+          </li>
+          <li class="job" data-reveal>
+            <p class="job__years" data-i18n="job4.years"><time datetime="2022-02">Févr. 2022</time> — <time datetime="2022-07">juil. 2022</time></p>
+            <div><h3 class="job__role" data-i18n="job4.role">Développeur frontend</h3><p class="job__org" data-i18n="job4.org">Pulse · groupe AXIAN</p></div>
+            <div><p class="job__desc" data-i18n="job4.desc">Plusieurs sites pour le groupe AXIAN&#8239;: agence de voyage, gestion des absences, suivi de projet, landing page événementielle et gestion de points de vente (POS).</p><p class="job__stack">Angular 12 · Vue.js · Sass · Jira</p></div>
+          </li>
+          <li class="job" data-reveal>
+            <p class="job__years" data-i18n="job5.years"><time datetime="2021-03">Mars 2021</time> — <time datetime="2022-01">janv. 2022</time></p>
+            <div><h3 class="job__role" data-i18n="job5.role">Développeur frontend Vue.js</h3><p class="job__org">Hightao-MG</p></div>
+            <div><p class="job__desc" data-i18n="job5.desc">Plateforme de recherche de bourses d’études avec back-office et internationalisation (i18n).</p><p class="job__stack">Vue.js · Vuex · i18n · Git · Trello</p></div>
+          </li>
+          <li class="job" data-reveal>
+            <p class="job__years" data-i18n="job6.years"><time datetime="2018-03">Mars 2018</time> — <time datetime="2020-09">sept. 2020</time></p>
+            <div><h3 class="job__role" data-i18n="job6.role">Débuts&#8239;: Java, PHP et e-commerce</h3><p class="job__org" data-i18n="job6.org">Labirint (stage) · Advalorem (alternance) · Stew Travel</p></div>
+            <div><p class="job__desc" data-i18n="job6.desc">Une application web en Java, des boutiques PrestaShop, puis la maintenance du site Laravel d’une agence de voyage.</p><p class="job__stack">Java · PHP · Laravel · PrestaShop</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 06 · Compétences =================================================== -->
+    <section class="section skills" id="competences" aria-labelledby="competences-title" tabindex="-1">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="num">06</span><span data-i18n="skills.eyebrow">Compétences</span></p>
+          <h2 class="section-title" id="competences-title" data-reveal style="--delay:60ms" data-i18n="skills.title">Les outils <em>du quotidien</em></h2>
+          <p class="section-intro" data-reveal style="--delay:120ms"><span class="chip-key" aria-hidden="true"></span><span data-i18n="skills.intro">En foncé, ma stack principale.</span></p>
+        </header>
+
+        <div class="skills__grid">
+          <div class="skill-group" data-reveal>
+            <h3 class="skill-group__title" data-i18n="skills.languages">Langages</h3>
+            <ul class="chips"><li class="is-core">TypeScript</li><li class="is-core">JavaScript</li><li>HTML5</li><li>CSS3</li><li>SQL</li><li>PHP</li></ul>
+          </div>
+          <div class="skill-group" data-reveal style="--delay:60ms">
+            <h3 class="skill-group__title" data-i18n="skills.frameworks">Frameworks &amp; librairies</h3>
+            <ul class="chips"><li class="is-core">Vue.js 2/3</li><li class="is-core">React</li><li class="is-core">Next.js</li><li class="is-core">Tailwind</li><li>Nuxt</li><li>Pinia / Vuex</li><li>shadcn/ui</li><li>Angular</li><li>Sass</li></ul>
+          </div>
+          <div class="skill-group" data-reveal>
+            <h3 class="skill-group__title" data-i18n="skills.data">Bases de données</h3>
+            <ul class="chips"><li>MySQL</li><li>PostgreSQL</li><li>IndexedDB</li></ul>
+          </div>
+          <div class="skill-group" data-reveal style="--delay:60ms">
+            <h3 class="skill-group__title" data-i18n="skills.tools">Outils &amp; méthodes</h3>
+            <ul class="chips"><li class="is-core">Git / GitHub</li><li>Cursor</li><li>Claude AI</li><li>GitHub Actions</li><li>Docker</li><li>Linux</li><li>Jest</li><li>Sentry</li><li>PWA</li><li>Jira / Trello</li><li>Agile</li><li data-i18n="skills.patterns">Design patterns</li></ul>
+          </div>
+        </div>
+        <p class="skills__also" data-reveal data-i18n="skills.also">Également utilisés sur des projets plus anciens&#8239;: jQuery, Bootstrap, MJML, Laravel, PrestaShop.</p>
+      </div>
+    </section>
+
+    <!-- 07 · Contact ======================================================= -->
+    <section class="contact" id="contact" aria-labelledby="contact-title" tabindex="-1">
+      <div class="wrap">
+        <div class="contact__card" data-reveal>
+          <svg class="contact__sun" viewBox="0 0 400 400" aria-hidden="true">
+            <g fill="none" stroke="#e0703f" stroke-width="1.2">
+              <circle cx="200" cy="200" r="96" stroke-opacity=".4"/>
+              <circle cx="200" cy="200" r="128" stroke-opacity=".26"/>
+              <circle cx="200" cy="200" r="160" stroke-opacity=".15"/>
+              <circle cx="200" cy="200" r="192" stroke-opacity=".08"/>
+            </g>
+            <circle cx="200" cy="200" r="64" fill="#b4441f"/>
+          </svg>
+
+          <p class="eyebrow eyebrow--light"><span class="num">07</span><span data-i18n="contact.eyebrow">Contact</span></p>
+          <h2 class="contact__title" id="contact-title" data-i18n="contact.title">Un projet en tête&#8239;? <em>Parlons-en.</em></h2>
+          <p class="contact__intro" data-i18n="contact.intro">Disponible en freelance et en remote. Cliquez sur l’adresse&#8239;: un court modèle de brief (contexte, stack, délai, budget) est déjà prêt.</p>
+
+          <div class="contact__mail">
+            <a class="contact__address" href="mailto:mtsiresiharidera@gmail.com?subject=Projet%20freelance&amp;body=Bonjour%20Notoavina%2C%0A%0AContexte%20du%20projet%20%3A%0AStack%20(Vue%2C%20Nuxt%2C%20React%2C%20Next%E2%80%A6)%20%3A%0AD%C3%A9lai%20souhait%C3%A9%20%3A%0AFormat%20(forfait%20ou%20r%C3%A9gie)%20et%20budget%20%3A%0A%0AMerci%2C%0A" data-i18n-attr="href:contact.mailto">mtsiresiharidera@gmail.com</a>
+            <div class="contact__actions">
+              <button class="btn btn--light copy" type="button" data-copy="mtsiresiharidera@gmail.com">
+                <span class="copy__a" data-i18n="contact.copy">Copier l’adresse</span>
+                <span class="copy__b" aria-hidden="true" data-i18n="contact.copied">Adresse copiée</span>
+              </button>
+              <a class="btn btn--outline-light" href="assets/cv/notoavina-tsiresiharidera-cv.pdf" data-i18n-attr="href:cv.href" download>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v9M4 7l4 4 4-4M3 14h10"/></svg>
+                <span data-i18n="contact.cv">Télécharger le CV</span>
+              </a>
+            </div>
+            <p class="sr-only" role="status" data-copy-status></p>
+          </div>
+
+          <dl class="contact__details">
+            <div><dt data-i18n="contact.phone">Téléphone</dt><dd><a href="tel:+261327435346">+261&nbsp;32&nbsp;74&nbsp;353&nbsp;46</a></dd></div>
+            <div><dt data-i18n="contact.location">Localisation</dt><dd>Antananarivo, Madagascar<br><span class="muted"><span data-i18n="contact.timePrefix">Il est</span> <time data-clock>--:--</time> (UTC+3)</span></dd></div>
+            <div><dt data-i18n="contact.elsewhere">Réseaux</dt><dd><a href="https://www.linkedin.com/in/notoavina-misaharison-tsiresiharidera-6b7865191" rel="me noopener" target="_blank">LinkedIn</a><br><a href="https://github.com/NotoavinaMG" rel="me noopener" target="_blank">GitHub</a></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <div class="footer__meta">
+      <p>© 2026 Notoavina Tsiresiharidera</p>
+      <p data-i18n="footer.made">Conçu et développé à Antananarivo, en HTML, CSS et JavaScript natifs.</p>
+    </div>
+    <a class="to-top" href="#accueil">
+      <span data-i18n="footer.top">Retour en haut</span>
+      <span class="to-top__icon" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13.5V2.5M3.5 7 8 2.5 12.5 7"/></svg>
+      </span>
+    </a>
+  </footer>
 </body>
 </html>

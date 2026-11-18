@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360">
+  <rect width="480" height="360" fill="#eae5dc"/>
+  <circle cx="250" cy="186" r="128" fill="#ddd4c6"/>
+  <!-- Grille du moniteur -->
+  <g stroke="#1b1815" stroke-opacity=".08" stroke-width="1">
+    <path d="M40 106H440M40 138H440M40 170H440M40 202H440M40 234H440M40 266H440"/>
+  </g>
+  <!-- Pouls -->
+  <path d="M40 202H176l16-36 18 78 20-118 20 98 14-22H440" fill="none" stroke="#1b1815" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="230" cy="126" r="20" fill="none" stroke="#b4441f" stroke-opacity=".35" stroke-width="1.5"/>
+  <circle cx="230" cy="126" r="7" fill="#b4441f"/>
+  <!-- Croix -->
+  <rect x="64" y="56" width="52" height="52" rx="14" fill="#f3f0ea"/>
+  <path d="M90 70v24M78 82h24" stroke="#b4441f" stroke-width="6" stroke-linecap="round"/>
+  <!-- Hors-ligne -->
+  <rect x="340" y="262" width="96" height="40" rx="20" fill="#1b1815"/>
+  <g fill="none" stroke="#f3f0ea" stroke-width="2" stroke-linecap="round">
+    <path d="M362 288a12 12 0 0 1 16 0"/>
+    <path d="M356 282a20 20 0 0 1 28 0" stroke-opacity=".45"/>
+  </g>
+  <circle cx="370" cy="292" r="2" fill="#f3f0ea"/>
+  <path d="M396 282h24M396 290h16" stroke="#f3f0ea" stroke-opacity=".45" stroke-width="2" stroke-linecap="round"/>
+</svg>

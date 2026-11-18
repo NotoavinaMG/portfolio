@@ -1,0 +1,75 @@
+/* ==========================================================================
+   03 — Parcours : un tableau calme, une ligne par poste
+   ========================================================================== */
+
+@layer sections {
+  .experience {
+    border-top: 1px solid var(--line);
+  }
+
+  .jobs {
+    border-top: 1px solid var(--ink);
+  }
+
+  .job {
+    display: grid;
+    gap: 8px 32px;
+    padding-block: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .job__years {
+    font-size: var(--t-sm);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Poste actuel : pastille verte, comme le statut de l'accueil. */
+  .job--current .job__years {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .job--current .job__years::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: var(--signal);
+    box-shadow: 0 0 0 3px rgb(47 122 74 / 0.16);
+    vertical-align: 1px;
+  }
+
+  .job__role {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+  }
+
+  .job__org {
+    margin-top: 4px;
+    font-size: var(--t-sm);
+    font-weight: 500;
+    color: var(--laterite);
+  }
+
+  .job__desc {
+    max-width: 52ch;
+  }
+
+  .job__stack {
+    margin-top: 10px;
+    font-size: var(--t-xs);
+    color: var(--muted);
+  }
+
+  @media (min-width: 900px) {
+    .job {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 4fr) minmax(0, 6fr);
+      align-items: baseline;
+      padding-block: 36px;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360">
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.4" fill="#1b1815" fill-opacity=".14"/>
+    </pattern>
+  </defs>
+  <rect width="480" height="360" fill="#eae5dc"/>
+  <rect width="480" height="360" fill="url(#dots)"/>
+  <!-- Panneau -->
+  <rect x="64" y="64" width="352" height="232" rx="18" fill="#f3f0ea"/>
+  <circle cx="92" cy="92" r="4.5" fill="#1b1815"/>
+  <circle cx="108" cy="92" r="4.5" fill="#1b1815" fill-opacity=".25"/>
+  <circle cx="124" cy="92" r="4.5" fill="#b4441f"/>
+  <rect x="300" y="88" width="88" height="8" rx="4" fill="#ddd4c6"/>
+  <!-- Barres -->
+  <g fill="#1b1815">
+    <rect x="94" y="196" width="14" height="70" rx="7"/>
+    <rect x="124" y="170" width="14" height="96" rx="7"/>
+    <rect x="154" y="208" width="14" height="58" rx="7"/>
+    <rect x="184" y="150" width="14" height="116" rx="7"/>
+    <rect x="214" y="182" width="14" height="84" rx="7"/>
+    <rect x="244" y="200" width="14" height="66" rx="7"/>
+    <rect x="304" y="164" width="14" height="102" rx="7"/>
+    <rect x="334" y="190" width="14" height="76" rx="7"/>
+    <rect x="364" y="176" width="14" height="90" rx="7"/>
+  </g>
+  <rect x="274" y="124" width="14" height="142" rx="7" fill="#b4441f"/>
+  <circle cx="281" cy="112" r="14" fill="none" stroke="#b4441f" stroke-opacity=".35" stroke-width="1.5"/>
+  <path d="M88 274H392" stroke="#1b1815" stroke-opacity=".15" stroke-width="1.5"/>
+</svg>

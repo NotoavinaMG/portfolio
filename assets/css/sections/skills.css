@@ -1,0 +1,74 @@
+/* ==========================================================================
+   05 — Compétences : quatre familles, la stack principale en foncé
+   ========================================================================== */
+
+@layer sections {
+  .skills {
+    border-top: 1px solid var(--line);
+  }
+
+  .skills__grid {
+    display: grid;
+    gap: 48px clamp(32px, 5vw, 80px);
+  }
+
+  @media (min-width: 900px) {
+    .skills__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .skill-group__title {
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--ink);
+    font-family: var(--f-sans);
+    font-size: var(--t-xs);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .chips li,
+  .chip-key {
+    padding: 10px 16px;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1px var(--line-strong);
+    font-size: var(--t-sm);
+    line-height: 1;
+  }
+
+  .chips .is-core {
+    background: var(--ink);
+    color: var(--paper);
+    box-shadow: none;
+  }
+
+  .skills__also {
+    max-width: 64ch;
+    margin-top: clamp(40px, 5vw, 56px);
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: var(--t-sm);
+    color: var(--muted);
+  }
+
+  /* Pastille de légende dans le chapô. */
+  .chip-key {
+    display: inline-block;
+    width: 28px;
+    height: 14px;
+    padding: 0;
+    margin-right: 10px;
+    background: var(--ink);
+    box-shadow: none;
+    vertical-align: -1px;
+  }
+}

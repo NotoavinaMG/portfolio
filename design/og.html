@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Gabarit Open Graph</title>
+<!-- Gabarit de l'image de partage (assets/img/og.png, 1200 × 630).
+     Rendu : chrome --headless --window-size=1200,630 --screenshot=… -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,350;1,6..72,350&display=block">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: var(--paper); color: var(--ink); }
+  .page { box-sizing: border-box; height: 100%; padding: 64px 72px; display: grid; grid-template-columns: 1fr 340px; gap: 72px; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 14px; font: 500 20px/1 var(--f-sans); }
+  .mark { width: 44px; height: 44px; border-radius: 50%; background: var(--laterite); color: var(--paper); display: grid; place-items: center; font: italic 400 26px/1 var(--f-serif); padding-bottom: 3px; box-sizing: border-box; }
+  h1 { margin: 40px 0 0; font: 350 72px/1.03 var(--f-serif); letter-spacing: -0.032em; }
+  h1 em { font-style: italic; color: var(--laterite); }
+  p { margin: 28px 0 0; font: 400 22px/1.4 var(--f-sans); color: var(--muted); }
+  svg { width: 340px; height: auto; display: block; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div>
+      <div class="brand"><span class="mark">N</span>Notoavina Tsiresiharidera</div>
+      <h1>Développeur frontend freelance, spécialiste <em>Vue.js et React</em>.</h1>
+      <p>Renfort pour agences · Migration Vue 2 → 3 · Remote, UTC+3</p>
+    </div>
+    <svg viewBox="0 0 400 500" aria-hidden="true">
+      <defs>
+        <clipPath id="arch"><path d="M0 500V200a200 200 0 0 1 400 0v300z"/></clipPath>
+        <clipPath id="clip-mid"><path d="M-10 362C80 336 150 340 220 362s120 10 190-14V560H-10z"/></clipPath>
+        <clipPath id="clip-front"><path d="M-10 420C70 396 140 388 210 402s120 34 200 12V560H-10z"/></clipPath>
+        <path id="line-mid" d="M-10 362C80 336 150 340 220 362s120 10 190-14"/>
+        <path id="line-front" d="M-10 420C70 396 140 388 210 402s120 34 200 12"/>
+      </defs>
+      <g clip-path="url(#arch)">
+        <rect width="400" height="500" fill="#eae5dc"/>
+        <g fill="none" stroke="#b4441f" stroke-width="1.2">
+          <circle cx="250" cy="226" r="82" stroke-opacity=".34"/><circle cx="250" cy="226" r="110" stroke-opacity=".22"/>
+          <circle cx="250" cy="226" r="138" stroke-opacity=".13"/><circle cx="250" cy="226" r="166" stroke-opacity=".07"/>
+        </g>
+        <circle cx="250" cy="226" r="56" fill="#b4441f"/>
+        <path d="M-10 318C60 286 120 290 180 308s130-8 230-30V560H-10z" fill="#ddd4c6"/>
+        <path d="M-10 362C80 336 150 340 220 362s120 10 190-14V560H-10z" fill="#d3a588"/>
+        <g clip-path="url(#clip-mid)" fill="none" stroke="#b4441f" stroke-opacity=".32" stroke-width="1.2">
+          <use href="#line-mid" y="14"/><use href="#line-mid" y="28"/><use href="#line-mid" y="42"/><use href="#line-mid" y="56"/>
+        </g>
+        <path d="M-10 420C70 396 140 388 210 402s120 34 200 12V560H-10z" fill="#1b1815"/>
+        <g clip-path="url(#clip-front)" fill="none" stroke="#f3f0ea" stroke-opacity=".18" stroke-width="1.2">
+          <use href="#line-front" y="12"/><use href="#line-front" y="24"/><use href="#line-front" y="36"/><use href="#line-front" y="48"/><use href="#line-front" y="60"/><use href="#line-front" y="72"/><use href="#line-front" y="84"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+</body>
+</html>

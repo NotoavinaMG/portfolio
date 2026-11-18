@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360">
+  <rect width="480" height="360" fill="#eae5dc"/>
+  <!-- Sol -->
+  <ellipse cx="240" cy="276" rx="150" ry="34" fill="#ddd4c6"/>
+  <ellipse cx="240" cy="272" rx="96" ry="18" fill="#1b1815" fill-opacity=".12"/>
+  <!-- Orbite de rotation (arrière) -->
+  <path d="M84 196a156 44 0 0 1 312 0" fill="none" stroke="#1b1815" stroke-opacity=".3" stroke-width="1.5" stroke-dasharray="2 7" stroke-linecap="round"/>
+  <!-- Cube isométrique -->
+  <g stroke="#1b1815" stroke-width="1.5" stroke-linejoin="round">
+    <path d="M240 82l80 46-80 46-80-46z" fill="#f3f0ea"/>
+    <path d="M160 128l80 46v92l-80-46z" fill="#d3a588"/>
+    <path d="M320 128l-80 46v92l80-46z" fill="#b4441f"/>
+  </g>
+  <path d="M240 174v92" stroke="#1b1815" stroke-width="1.5"/>
+  <!-- Orbite (avant) et flèche -->
+  <path d="M396 196a156 44 0 0 1-312 0" fill="none" stroke="#1b1815" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M106 222l-20-24 31 2" fill="none" stroke="#1b1815" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="352" cy="230" r="6" fill="#b4441f"/>
+</svg>
